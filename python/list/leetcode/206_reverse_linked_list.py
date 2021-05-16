@@ -30,14 +30,33 @@ def show(head: SinglyNode):
     head = head.next
     i = i + 1
 
-def reverse(head: SinglyNode) -> SinglyNode:
+"""
+Runtime: 24 ms, faster than 99.17% of Python3 online submissions for Reverse Linked List.
+Memory Usage: 15.7 MB, less than 42.36% of Python3 online submissions for Reverse Linked List.
+"""
+def reverseSingle(head: SinglyNode) -> SinglyNode:
+  prev, curr, next = None, head, None
+
+  while (curr is not None):
+    next = curr.next
+    curr.next = prev
+    prev = curr
+    curr = next
+  
+  head = prev
+  return head
+
+"""
+Runtime: 36 ms, faster than 61.62% of Python3 online submissions for Reverse Linked List.
+Memory Usage: 15.7 MB, less than 42.36% of Python3 online submissions for Reverse Linked List.
+"""
+def reverseTuple(head: SinglyNode) -> SinglyNode:
   prev, curr = None, head
 
   while (curr is not None):
     prev, prev.next, curr = curr, prev, curr.next
 
-  head = prev
-  return head
+  return prev 
 
 def test():
   head = initSinglyList(5)
@@ -45,9 +64,12 @@ def test():
   print("original list")
   show(head)
 
-  print("reversed list")
-  head = reverse(head)
-  show(head)
+  print("reversed list by single assignment")
+  show(reverseSingle(head))
+
+  head = initSinglyList(5)
+  print("reversed list by tuple assignment")
+  show(reverseTuple(head))
 
 if __name__ == "__main__":
   test()
