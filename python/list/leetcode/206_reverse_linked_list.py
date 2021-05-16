@@ -43,8 +43,7 @@ def reverseSingle(head: SinglyNode) -> SinglyNode:
     prev = curr
     curr = next
   
-  head = prev
-  return head
+  return prev 
 
 """
 Runtime: 36 ms, faster than 61.62% of Python3 online submissions for Reverse Linked List.
