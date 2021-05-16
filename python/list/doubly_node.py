@@ -1,5 +1,5 @@
 class DoublyNode:
-  def __init__(self, data: int, prev=DoublyNode, next=DoublyNode):
-    self.data = data
+  def __init__(self, val, prev=None, next=None):
+    self.val = val 
     self.prev = prev 
     self.next = next 
