@@ -4,29 +4,29 @@ import os
 sys.path.append(os.getcwd())
 
 
-from list.singly_node import SinglyNode
+from list.list_node import ListNode
 
-def initSinglyList(length: int) -> SinglyNode:
-  head = SinglyNode(0, None)
+def initSinglyList(length: int) -> ListNode:
+  head = ListNode(0, None)
   current = head
 
   i = 0
   while (i < length):
     i = i + 1
-    temp = SinglyNode(i, None)
+    temp = ListNode(i, None)
     current.next = temp
     current = temp
 
   return head
 
 
-def show(head: SinglyNode):
+def show(head: ListNode):
   if head is None:
     return
     
   i = 0
   while (head.next is not None):
-    print ("#%d is %d"%(i, head.data))
+    print ("#%d is %d"%(i, head.val))
     head = head.next
     i = i + 1
 
@@ -34,7 +34,7 @@ def show(head: SinglyNode):
 Runtime: 24 ms, faster than 99.17% of Python3 online submissions for Reverse Linked List.
 Memory Usage: 15.7 MB, less than 42.36% of Python3 online submissions for Reverse Linked List.
 """
-def reverseSingle(head: SinglyNode) -> SinglyNode:
+def reverseSingle(head: ListNode) -> ListNode:
   prev, curr, next = None, head, None
 
   while (curr is not None):
@@ -49,7 +49,7 @@ def reverseSingle(head: SinglyNode) -> SinglyNode:
 Runtime: 36 ms, faster than 61.62% of Python3 online submissions for Reverse Linked List.
 Memory Usage: 15.7 MB, less than 42.36% of Python3 online submissions for Reverse Linked List.
 """
-def reverseTuple(head: SinglyNode) -> SinglyNode:
+def reverseTuple(head: ListNode) -> ListNode:
   prev, curr = None, head
 
   while (curr is not None):
