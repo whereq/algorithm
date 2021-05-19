@@ -3,7 +3,7 @@ import os
 
 sys.path.append(os.getcwd())
 
-from list.singly_node import ListNode
+from list.list_node import ListNode
 
 class Solution:
   def hasCycleBySet(self, head: ListNode) -> bool:
