@@ -9,7 +9,7 @@ class ListNode:
       return
     
     i = 0
-    while (head.next is not None):
+    while (head is not None):
       print ("#%d is %d"%(i, head.val))
       head = head.next
       i = i + 1
@@ -50,3 +50,30 @@ class ListNode:
 
     return head
 
+  @staticmethod
+  def buildRandomList(length):
+    import random
+
+    head = ListNode(random.randint(0, 9), None)
+    current = head
+
+    i = 0
+    while (i < length):
+      temp = ListNode(random.randint(0, 9), None)
+      current.next = temp
+      current = temp
+      i += 1
+
+    return head
+
+  @staticmethod
+  def array2ist(nums):
+
+    dummyHead = ListNode()
+    current = dummyHead
+
+    for num in nums:
+      current.next = ListNode(num)
+      current = current.next
+
+    return dummyHead.next 
