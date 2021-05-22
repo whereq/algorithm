@@ -12,7 +12,6 @@ class Solution:
     """
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
 
-      d = t = 0
       dummyHead = ListNode()
       current = dummyHead
 
@@ -23,17 +22,15 @@ class Solution:
         current = temp
         return d // 10
 
-
+      t = 0
       while (l1 and l2):
-        d = l1.val + l2.val + t
-        t = _add(d)
+        t = _add(l1.val + l2.val + t)
         l1, l2 = l1.next, l2.next
       
       l3 = l1 if l1 else l2
 
       while (l3):
-        d = l3.val + t
-        t = _add(d)
+        t = _add(l3.val + t)
         l3 = l3.next
 
       if (t > 0):
